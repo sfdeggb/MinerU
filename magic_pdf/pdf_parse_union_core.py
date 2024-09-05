@@ -212,9 +212,9 @@ def pdf_parse_union(pdf_bytes,
 
     '''初始化启动时间'''
     start_time = time.time()
-
-    for page_id in range(start_page_id, end_page_id + 1):
-
+    #添加进度条
+    from tqdm import tqdm
+    for page_id in tqdm(range(start_page_id, end_page_id + 1), desc="解析PDF页面"):
         '''debug时输出每页解析的耗时'''
         if debug_mode:
             time_now = time.time()
